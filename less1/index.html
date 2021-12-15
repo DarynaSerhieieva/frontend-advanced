@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-background">
+            <div class="wrapper">
+                <div class="header">
+                    <div class="logo-nav">
+                        <a class="img-logo" href="#"><img src="./img/logo.svg" width="267" height="58" alt="logo"></a>
+                        <nav>
+                            <ul class="nav-menu">
+                                <li><a class="nav-menu__item" href="#">Каталог</a></li>
+                                <li><a class="nav-menu__item" href="#">Обучение</a></li>
+                                <li><a class="nav-menu__item" href="#">Партнёрам</a></li>
+                                <li><a class="nav-menu__item" href="#">Акции</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <ul class="user-panel">
+                        <li><a href="#"><img src="./img/loupe.svg" width="22" height="22" alt="loupe"></a></li>
+                        <li><a href="#"><img src="./img/user.svg" width="22" height="22" alt="user"></a></li>
+                        <li><a href="#"><img src="./img/shopping-bag.svg" width="22" height="22" alt="shopping bag"></a></li>
+                    </ul>
+                </div>
+                <ul class="breadcrumbs">
+                    <li><a class="breadcrumbs__item" href="#"><img src="./img/home.svg" width="14" height="14" alt="home"></a></li>
+                    <li><a class="breadcrumbs__item" href="#">Страница 1-го уровня</a></li>
+                    <li class="breadcrumbs__item">Страница 1-го уровня</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1 class="visually-hidden">Form list</h1>
+        <div class="wrapper">
+            <h2 class="heading">Оформление заказа</h2>
+            <form class="form">
+                <div class="user-date">
+                    <fieldset class="form-background radio-button">
+                        <h3 class="form__name">Войти или зарегистрироваться</h3>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="type" value="log_in">
+                            <span class="radio-text">Войти</span>
+                        </label>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="type" value="register" checked>
+                            <span class="radio-text">Зарегистрироваться</span>
+                        </label>
+                    </fieldset>
+                    <div class="form-background">
+                        <fieldset class="personal-data">
+                            <h3 class="form__name">Личные данные</h3>
+                            <label class="form__input">
+                                <span>Ваше имя</span>
+                                <input type="text" name="ferst_name" placeholder="Ваше имя" required >
+                            </label>
+                            <label class="form__input">
+                                <span>Ваша фамилия</span>
+                                <input type="text" name="last_name" placeholder="Ваша фамилия" required >
+                            </label>
+                            <label class="form__input">
+                                <span>Электронный адрес</span>
+                                <input type="email" name="email" placeholder="Электронный адрес" required >
+                            </label>
+                            <label class="form__input">
+                                <span>Мобильный номер</span>
+                                <input type="tel" name="tel" placeholder="Мобильный номер" required >
+                            </label>
+                            <label class="form__input">
+                                <span>Дополнительный контакт</span>
+                                <input type="tel" name="additional" placeholder="Мобильный номер">
+                            </label>
+                        </fieldset>
+                        <fieldset class="personal-data">
+                            <h3 class="form__name">Данные о доставке</h3>
+                            <label class="form__input">
+                                <span>Страна</span>
+                                <input type="tel" name="фdditional" placeholder="Мобильный номер">
+                            </label>
+                            <label class="form__input">
+                                <span>Страна</span>
+                                <input type="tel" name="фdditional" placeholder="Мобильный номер">
+                            </label>
+                            <label class="form__input">
+                                <span>Индекс</span>
+                                <input type="number" name="index" placeholder="Индекс">
+                            </label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="order">
+                    <fieldset class="form-background radio-button">
+                        <h3 class="form__name">Способ доставки</h3>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="delivery" value="delivery1" checked>
+                            <span class="radio-text">Способ доставки</span>
+                        </label>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="delivery" value="delivery2">
+                            <span class="radio-text">Способ доставки</span>
+                        </label>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="delivery" value="delivery3">
+                            <span class="radio-text">Способ доставки</span>
+                        </label>
+                    </fieldset>
+                    <fieldset class="form-background radio-button">
+                        <h3 class="form__name">Способ оплаты</h3>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="payment" value="payment1" checked>
+                            <span class="radio-text">Способ оплаты</span>
+                        </label>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="payment" value="payment2">
+                            <span class="radio-text">Способ оплаты</span>
+                        </label>
+                        <label>
+                            <input class="default-radio visually-hidden" type="radio" name="payment" value="payment3">
+                            <span class="radio-text">Способ оплаты</span>
+                        </label>
+                    </fieldset>
+                    <div>
+                        <h3 class="form__name">Ваша корзина</h3>
+                        <table class="table">
+                            <tbody>
+                                <thead>
+                                    <tr class="table__heading">
+                                        <th class="table__name">Фото</th>
+                                        <th class="table__name">товар</th>
+                                        <th class="table__name">Количество</th>
+                                        <th class="table__name">цена</th>
+                                        <th class="table__name">Итого</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td class="product"><img src="./img/product.jpg" alt="product"></td>
+                                    <td class="product__text">Название товара</td>
+                                    <td>
+                                        <div class="product__counter">
+                                            <input type="number" value="1">
+                                            <img class="renew" src="./img/renew.svg" alt="renew">
+                                            <img src="./img/delete.svg" alt="delete">
+                                        </div>
+                                    </td>
+                                    <td class="product__text">10 23, 58 RUB</td>
+                                    <td class="product__text">100 023, 58 RUB</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="table__name text-end" colspan="4">стоимость товара:</td>
+                                    <td class="product__text">100 523, 58 RUB</td>
+                                </tr>
+                                <tr>
+                                    <td class="table__name text-end" colspan="4">Доставка:</td>
+                                    <td class="product__text">100 RUB</td>
+                                </tr>
+                                <tr>
+                                    <td class="table__name text-end" colspan="4">итого:</td>
+                                    <td class="product__text">100 623, 58 RUB</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="wrapper footer__container">
+                <div class="logo-nav">
+                    <a class="img-logo" href="#"><img src="./img/logo.svg" width="267" height="58" alt="logo"></a>
+                    <ul class="nav-menu">
+                        <li><a class="nav-menu__item" href="#">Наша команда</a></li>
+                        <li><a class="nav-menu__item" href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <ul class="socials">
+                    <li><a href="#"><img src="./img/facebook.svg" width="28" height="28" alt="facebook"></a></li>
+                    <li><a href="#"><img src="./img/instagram.svg" width="28" height="28" alt="instagram"></a></li>
+                    <li><a href="#"><img src="./img/youtube.svg" width="28" height="28" alt="youtube"></a></li>
+                    <li><a href="#"><img src="./img/linkedin.svg" width="28" height="28" alt="linkedin"></a></li>
+                    <li><a href="#"><img src="./img/pinterest-social-logo.svg" width="28" height="28" alt="pinterest"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
