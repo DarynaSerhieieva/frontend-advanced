@@ -69,7 +69,6 @@ body {
 .user-panel li:not(:last-child) {
     margin-right: 34px;
 }
-
 .nav-menu__item {
     text-decoration: none;
     font-weight: bold;
@@ -78,7 +77,6 @@ body {
 .nav-menu__item:hover {
     color: var(--radio-button);
 }
-
 .breadcrumbs {
     align-items: center;
     padding: 16px 0;
@@ -91,7 +89,6 @@ body {
 .breadcrumbs li:not(:last-child) {
     margin-right: 10px;
 }
-
 .breadcrumbs li:not(:last-child)::after {
     content: '';
     background-image: url('../img/arrow.svg');
@@ -123,9 +120,8 @@ body {
 .user-date {
     width: 30%;
 }
-
 .radio-button {
-    margin: 0 0 20px 0;
+    margin: 0 0 30px 0;
     border: none;
 }
 .form-background {
@@ -202,14 +198,17 @@ body {
     flex-direction: column;
 }
 .form__input,
-.form__input input {
+.form__input input,
+.payment__more,
+.payment__more textarea {
     font-size: 14px;
     line-height: 16px;
 }
 .form__input span {
     padding-bottom: 10px;
 }
-.form__input input {
+.form__input input,
+.payment__more textarea {
     padding: 11px 20px;
     background: var(--white);
     border: 1px solid var(--border-color);
@@ -217,31 +216,22 @@ body {
     margin-bottom: 20px;
 }
 .form__input input:focus,
-.product__counter input:focus {
+.product__counter input:focus,
+.payment__more textarea:focus {
     outline: none;
     border-color: var(--radio-button);
 }
 .form__input input:hover,
-.product__counter input:hover {
+.product__counter input:hover,
+.payment__more textarea:hover {
     background: var(--header-background);
 }
-.footer {
-    margin-top: 150px;
-    border-top: 1px solid var(--line-background);
-}
-.footer__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-}
-.socials li:not(:last-child) {
-    margin-right: 17px;
-}
+
 .table {
     width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
+    margin-bottom: 31px;
 }
 .table__heading{
     background: var(--form-background);
@@ -252,7 +242,7 @@ body {
     line-height: 16px;
     text-transform: uppercase;
     color: var(--text-basic);
-    padding-top: 12px;
+    padding: 12px 0;
     text-align: start;
 }
 .table__name:first-child {
@@ -287,4 +277,101 @@ body {
 }
 .text-end {
     text-align: end;
+    padding-right: 30px;
+}
+.payment {
+    display: flex;
+    flex-direction: column;
+}
+.payment > .form__name {
+    padding-bottom: 15px;
+}
+.payment__more {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-basic);
+}
+.payment__more span {
+    margin-bottom: 10px;
+}
+.payment__more textarea {
+    font-family: 'Raleway', 'Tahoma',  sans-serif;
+    height: 86px;
+    padding: 9px 11px;
+    resize: none;
+    margin-bottom: 16px;
+}
+.payment__checkbox {
+    color: var(--text-basic);
+	position: relative;
+	padding-left: 25px;
+	min-height: 25px;
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+}
+.payment__checkbox::before {
+	content: "";
+	width: 17px;
+	height: 17px;
+	border: 1px solid var(--radio-button);
+	border-radius: 2px;
+	background: transparent;
+	position: absolute;
+	left: 0;
+	top: 4px;
+}
+.payment__checkbox::after{
+	display: none;
+	content: "";
+	width: 20px;
+	height: 20px;
+	background-image: url("../img/checked.svg");
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 8px;
+	left: 2px;
+}
+.payment__basic:checked + .payment__checkbox::after {
+	display: block;
+}
+.payment__basic:enabled + .payment__checkbox:hover {
+	color: var(--text-grey);
+}
+.payment__basic:enabled + .payment__checkbox:hover::before {
+	background-color: var(--white);
+}
+.payment__basic:disabled + .payment__checkbox {
+	opacity: 0.3;
+}
+.form__submit {
+    font-family: 'Raleway', 'Tahoma',  sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 35px 20px;
+    align-self: flex-end;
+    color: var(--white);
+    background: var(--radio-button);
+    border: 1px solid var(--radio-button);
+    padding: 20px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.form__submit:hover {
+    background: var(--white);
+    color: var(--radio-button);
+}
+.footer {
+    margin-top: 150px;
+    border-top: 1px solid var(--line-background);
+}
+.footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.socials li:not(:last-child) {
+    margin-right: 17px;
 }

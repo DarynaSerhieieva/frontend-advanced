@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <header>
@@ -62,11 +62,11 @@
                             <h3 class="form__name">Личные данные</h3>
                             <label class="form__input">
                                 <span>Ваше имя</span>
-                                <input type="text" name="ferst_name" placeholder="Ваше имя" required >
+                                <input type="text" name="ferstName" placeholder="Ваше имя" required >
                             </label>
                             <label class="form__input">
                                 <span>Ваша фамилия</span>
-                                <input type="text" name="last_name" placeholder="Ваша фамилия" required >
+                                <input type="text" name="lastName" placeholder="Ваша фамилия" required >
                             </label>
                             <label class="form__input">
                                 <span>Электронный адрес</span>
@@ -85,11 +85,11 @@
                             <h3 class="form__name">Данные о доставке</h3>
                             <label class="form__input">
                                 <span>Страна</span>
-                                <input type="tel" name="фdditional" placeholder="Мобильный номер">
+                                <input type="text" name="country" placeholder="Страна">
                             </label>
                             <label class="form__input">
-                                <span>Страна</span>
-                                <input type="tel" name="фdditional" placeholder="Мобильный номер">
+                                <span>Город</span>
+                                <input type="text" name="town" placeholder="Город">
                             </label>
                             <label class="form__input">
                                 <span>Индекс</span>
@@ -132,22 +132,22 @@
                     <div>
                         <h3 class="form__name">Ваша корзина</h3>
                         <table class="table">
+                            <thead>
+                                <tr class="table__heading">
+                                    <th class="table__name">Фото</th>
+                                    <th class="table__name">товар</th>
+                                    <th class="table__name">Количество</th>
+                                    <th class="table__name">цена</th>
+                                    <th class="table__name">Итого</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <thead>
-                                    <tr class="table__heading">
-                                        <th class="table__name">Фото</th>
-                                        <th class="table__name">товар</th>
-                                        <th class="table__name">Количество</th>
-                                        <th class="table__name">цена</th>
-                                        <th class="table__name">Итого</th>
-                                    </tr>
-                                </thead>
                                 <tr>
                                     <td class="product"><img src="./img/product.jpg" alt="product"></td>
                                     <td class="product__text">Название товара</td>
                                     <td>
                                         <div class="product__counter">
-                                            <input type="number" value="1">
+                                            <input type="number" value="1" name="quantity">
                                             <img class="renew" src="./img/renew.svg" alt="renew">
                                             <img src="./img/delete.svg" alt="delete">
                                         </div>
@@ -171,9 +171,24 @@
                                 </tr>
                             </tfoot>
                         </table>
+                        <div class="form-background payment">
+                            <h3 class="form__name">Способ оплаты</h3>
+                            <label class="payment__more">
+                                <span>Дополнительные комментарии</span>
+                                <textarea name="more" cols="30" rows="10" placeholder="Дополнителньые комментарии к заказу"></textarea>
+                            </label>
+                            <label>
+                                <input class="payment__basic visually-hidden" type="checkbox" name="privateInformation">
+                                <span class="payment__checkbox">Согласие на обработку личных данных</span>
+                            </label>
+                            <button class="form__submit" type="submit">Перейти к оплате</button>
+                        </div>
                     </div>
                 </div>
             </form>
+        </div>
+        <div>
+            
         </div>
     </main>
     <footer>
@@ -196,5 +211,6 @@
             </div>
         </div>
     </footer>
+    <script src="./js/index.js"></script>
 </body>
 </html>
