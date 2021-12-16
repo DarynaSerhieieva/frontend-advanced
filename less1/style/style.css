@@ -375,3 +375,9 @@ body {
 .socials li:not(:last-child) {
     margin-right: 17px;
 }
+input.error{
+    border-color: red;
+}
+.checkboxError {
+    color: red;
+}
