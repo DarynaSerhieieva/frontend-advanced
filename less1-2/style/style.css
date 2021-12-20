@@ -7,7 +7,8 @@
     --radio-button: #946FD3;
     --white: #FFFFFF;
     --border-color: #B6B6B6;
-
+    --border-circle: #D6D9DE;
+    font-size: 16px;
 }
 * {
     box-sizing: border-box;
@@ -380,4 +381,73 @@ input.error{
 }
 .checkboxError {
     color: red;
+}
+.row {
+    margin-top: 40px;
+}
+.line {
+    border-bottom: 1px solid #E2E2E2;
+    padding-bottom: 18px;
+    margin: 0;
+}
+
+.pl-pr-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.card {
+    border: none;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-btn {
+    font-family: 'Raleway', 'Tahoma',  sans-serif;
+    text-decoration: none;
+    border-width:2px;
+    border-style: solid;
+    border-color: var(--radio-button);
+    border-radius: 50px;
+    font-weight: bold;
+    color: var(--radio-button);
+    align-self: self-start;
+}
+.card-btn:hover {
+    color: var(--white);
+    background: var(--radio-button);
+}
+.top {
+    margin-top: 70px;
+}
+.map {
+    width: 100%;
+    border: none;
+}
+.circle {
+    width: 61px;
+    height: 61px;
+    border: 2px solid var(--border-circle);
+    border-radius: 50%;
+}
+
+
+@media screen and (max-width: 992px) {
+	.footer__container {
+        flex-direction: column;
+    }
+    .socials {
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .logo-nav {
+        flex-direction: column;
+    }
+    .img-logo {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }
