@@ -354,7 +354,7 @@ body {
     align-self: flex-end;
     color: var(--white);
     background: var(--radio-button);
-    border: 1px solid var(--radio-button);
+    border: 2px solid var(--radio-button);
     padding: 20px 30px;
     border-radius: 50px;
     cursor: pointer;
@@ -432,7 +432,32 @@ input.error{
     border: 2px solid var(--border-circle);
     border-radius: 50%;
 }
-
+.container {
+    max-width: 1288px;
+}
+.map-h {
+    height: 441px;
+}
+.contact {
+    margin: 0;
+    padding: 45px 23px;
+}
+.contact h5 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+}
+.contact a {
+    color: var(--radio-button);
+    font-weight: bold;
+}
+.padd-no {
+    padding: 0;
+}
+.btn-contact {
+    width: 100%;
+    margin: 0;
+}
 
 @media screen and (max-width: 992px) {
 	.footer__container {
@@ -440,6 +465,9 @@ input.error{
     }
     .socials {
         margin-top: 20px;
+    }
+    .header {
+        flex-direction: column;
     }
 }
 @media screen and (max-width: 768px) {

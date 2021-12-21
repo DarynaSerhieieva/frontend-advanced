@@ -22,8 +22,12 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
     }
+    const myCarousel = document.querySelector('#carouselExampleControls')
+    const carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 2000,
+    wrap: false
+    })
 
-    console.log(window.navigator.getBattery())
 
 })
 
