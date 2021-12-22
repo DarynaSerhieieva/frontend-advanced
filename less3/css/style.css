@@ -1,0 +1,55 @@
+:root {
+    --white: rgb(255, 255, 255);
+    --orange: rgb(239, 120, 26);
+    --green: rgb(0, 208, 8);
+    --black: rgb(0, 0, 0);
+}
+body {
+    font-family: 'Montserrat', 'Arial', sans-serif ;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--black);
+}
+.wrapper {
+    max-width: 1218px;
+}
+.background-white {
+    background: var(--white);
+}
+.input-header {
+    padding: 15px 0 15px 47px;
+    width: 500px;
+    border-color:  #323232 !important;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+.position-adress {
+    font-weight: 500;
+    left: 32px;
+}
+.btn__header {
+    font-family: 'Montserrat', 'Arial', sans-serif ;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 15px 20px;
+    color: var(--white);
+    border-radius: 5px;
+}
+.btn__header:hover {
+    color: var(--white);
+    opacity: 0.75;
+}
+.btn__header:not(:last-child) {
+    margin-right: 30px;
+}
+.btn__header-orange {
+    background: var(--orange);
+}
+.btn__header-green {
+    background: var(--green);
+}
+
