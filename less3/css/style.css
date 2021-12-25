@@ -6,6 +6,8 @@
     --grey-link-active: rgb(52, 52, 52);
     --grey-text: rgb(161, 161, 161);
     --grey-text-list: rgb(151, 151, 151);
+    --grey-text-modal: rgb(68, 62, 62);
+    --grey-modal-like-text: rgb(153, 153, 153);
     --orange: rgb(255, 108, 1);
     --orange-btn-header: rgb(239, 120, 26);
     --green: rgb(0, 208, 8);
@@ -114,7 +116,7 @@ body {
     padding: 13px 27px;
 }
 .card-height {
-    min-height: 287px;
+    height: 100%;
 }
 .card-text {
     font-size: 10px;
@@ -128,6 +130,7 @@ body {
     display: flex;
     color: var(--black);
     text-decoration: none;
+    padding: 6.5px 23px;
 }
 .add-cart {
     display: none;
@@ -173,9 +176,6 @@ body {
     opacity: 0.75;
 }
 .footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
     background: var(--footer-background);
 }
 .footer-list:not(:last-child) {
@@ -186,6 +186,49 @@ body {
 }
 .footer-social:not(:last-child) {
     margin-right: 18px;
+}
+.modal-dialog {
+    max-width: 900px;
+}
+.modal-title {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+}
+.modal-text {
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--grey-text-modal);
+}
+.modal-order {
+    border: none;
+    background: var(--orange);
+    border-radius: 10px;
+    min-width: 210px;
+}
+.modal-like-text {
+    color: var(--grey-modal-like-text);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+}
+.modal-btn-like {
+    border: none;
+    max-width: 230px;
+    background: var(--white);
+    padding: 14px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.counter {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    padding: 0 14px;
+}
+.counter-circle {
+    width: 50px;
+    height: 50px;
 }
 
 @media screen and (max-width: 992px) {
