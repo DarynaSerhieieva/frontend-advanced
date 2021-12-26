@@ -64,10 +64,10 @@
                     <div class="col-md-8 col-12">
                         <ul class="col-12 nav nav-pills mt-4">
                             <li class="nav-item d-flex  align-items-center">
-                                <a class="nav-link" aria-current="page" href="#">Акції</a>
+                                <a class="nav-link active-link" aria-current="page" href="#">Акції</a>
                             </li>
                             <li class="nav-item d-flex  align-items-center">
-                                <a class="nav-link active-link" href="#">Бургери</a>
+                                <a class="nav-link" href="#">Бургери</a>
                             </li>
                             <li class="nav-item d-flex  align-items-center">
                                 <a class="nav-link" href="#">Курка</a>
@@ -137,18 +137,18 @@
                     <div class="col-md-4 col-12 order-list">
                         <div class="card w-100 mt-5">
                             <div class="px-3 py-4">
-                                <div class="px-3 mx-3 mb-1 pb-4">
+                                <div class="mb-1 pb-4">
                                     <div class="mb-1 pb-4">Ваше замовлення:</div>
                                     <table class="table m-0">
-                                        <tbody>
+                                        <tbody id="tableOrder">
                                             <tr>
                                                 <td class="border-0">
                                                     <h5 class="text-table">Біг Мак меню</h5>
-                                                    <ul class="list-unstyled list-text">
+                                                    <!-- <ul class="list-unstyled list-text">
                                                         <li>Картопля фрі</li>
                                                         <li>Біг Мак</li>
                                                         <li>Кола</li>
-                                                    </ul>
+                                                    </ul> -->
                                                 </td>
                                                 <td class="align-top border-0">
                                                     <button class="rounded-circle circle-btn border-0">+</button>
@@ -158,7 +158,7 @@
                                                 <td class="align-top text-table border-0">120 ₴ </td>
                                             </tr>
                                             <tr>
-                                                <td class="border-0">Доставка</td>
+                                                <td colspan="2" class="border-0">Доставка</td>
                                                 <td class="border-0">50 ₴ </td>
                                             </tr>
                                         </tbody>
@@ -182,30 +182,30 @@
                     <div class="modal-content container p-4">
                         <div class="row">
                             <div class="col-5 mx-5">
-                                <img src="./img/burger.jpg" alt="burger">
+                                <img class="img-modal" id="imgModal" src="./img/burger.jpg" alt="burger">
                             </div>
                             <div class="modal-body col-5 me-5">
-                                <h5 class="modal-title" id="exampleModalLabel">Бургер з куркою та медовою гірчицею</h5>
-                                <p class="modal-text pt-3">
+                                <h5 id="titelModal" class="modal-title" id="exampleModalLabel">Бургер з куркою та медовою гірчицею</h5>
+                                <p id="textModal" class="modal-text pt-3">
                                     Житній бургер з хрумкою куркою та скибочками бекону, ароматною смаженою цибулею, соленими огірками, сиром Чеддер, приправлений пікантною медовою гірчицею.
                                 </p>
                             </div>
                             <div class="modal-footer border-0 justify-content-around align-items-end">
                                 <div>
                                     <span class="modal-like-text d-flex py-3">Додати в улюблене?</span>
-                                    <button class="d-flex modal-btn-like">
+                                    <button id="addLike" class="d-flex modal-btn-like">
                                         <img src="./img/like.svg" width="40" height="34" alt="like">
-                                        <span class="modal-like-text">1123 користувача додали в улюблене</span>
+                                        <span id="addLikeModal" class="modal-like-text">1123 користувача додали в улюблене</span>
                                     </button>
                                 </div>
                                 <div>
-                                    <button class="rounded-circle counter-circle circle-btn border-0">+</button>
-                                    <span class="counter">1</span>
-                                    <button class="rounded-circle counter-circle circle-btn border-0">-</button>
+                                    <button id="counterPlus" class="rounded-circle counter-circle circle-btn border-0">+</button>
+                                    <span id="counterNumer" class="counter">1</span>
+                                    <button id="counterMinus" class="rounded-circle counter-circle circle-btn border-0">-</button>
                                 </div>
-                                <button type="button" class="btn__header modal-order d-flex align-items-center justify-content-between">
+                                <button id="addToOrder" type="button" class="btn__header modal-order d-flex align-items-center justify-content-between" data-bs-dismiss="modal">
                                     <span>Додати</span>
-                                    <span>150 ₴ </span>
+                                    <span id="priceModal">150 ₴ </span>
                                 </button>
                             </div>
                         </div>
