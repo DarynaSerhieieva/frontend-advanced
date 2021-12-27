@@ -1,13 +1,15 @@
 let orderList = [];
+let storeg = [];
 
 class Dish {
-    constructor(name, img, price, ingredients, like, add) {
+    constructor(name, img, price, ingredients, like, id, add) {
         this.name = name,
         this.img = img,
         this.price = price,
         this.ingredients = ingredients,
         this.like = like ?? 0,
-        this.add = false
+        this.add = add,
+        this.id = id
     }
 
     render = () => {
@@ -102,11 +104,48 @@ class Dish {
 
         const imgLike = document.createElement('img');
         imgLike.className = 'heart';
-        imgLike.src = './img/heart-border.svg';
+
+        if (!this.add) {
+            imgLike.src = './img/heart-border.svg';
+        } else {
+            imgLike.src = './img/heart-add.svg';
+        } 
         imgLike.setAttribute('alt', 'like');
         imgLike.setAttribute('width', '24');
         imgLike.setAttribute('height', '24');
         linkLike.appendChild(imgLike);
+
+        imgLike.addEventListener('mouseover', () => {
+            imgLike.src = './img/like.svg';
+        })
+
+        imgLike.addEventListener('mouseout', () => {
+            if (!this.add) {
+                imgLike.src = './img/heart-border.svg';
+            } else {
+                imgLike.src = './img/heart-add.svg';
+            }
+        })
+
+        imgLike.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (!this.add) {
+                this.add = true;
+                imgLike.src = './img/heart-add.svg';
+                this.like ++;
+                storeg[this.id - 1].like = this.like;
+                storeg[this.id - 1].add = true;
+                localStorage['menu'] = JSON.stringify(storeg);
+            } else {
+                this.add = false;
+                imgLike.src = './img/heart-border.svg';
+                this.like --;
+                storeg[this.id - 1].like = this.like;
+                storeg[this.id - 1].add = false;
+                localStorage['menu'] = JSON.stringify(storeg);
+            }
+        })
 
         return div;
     }
@@ -179,8 +218,8 @@ const getData = async (url) => {
 }
 
 const addDish = (list, main) => {
-    list.forEach(({productName, price, productImageUrl, ingredients}) => {   
-        main.appendChild((new Dish(productName, productImageUrl, price, ingredients)).render());
+    list.forEach(({productName, price, productImageUrl, ingredients, like, id, add}) => {   
+        main.appendChild((new Dish(productName, productImageUrl, price, ingredients, like, id, add)).render());
     });
     
 }
@@ -190,14 +229,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     const main = document.getElementById('mainList');
     
 
-    let dataLocal = JSON.parse(localStorage.getItem('menu'));
+    storeg = JSON.parse(localStorage.getItem('menu'));
 
-    if (!dataLocal) {
+    if (!storeg) {
         await getData('./menu.json');
-        dataLocal = JSON.parse(localStorage.getItem('menu'));
+        storeg = JSON.parse(localStorage.getItem('menu'));
         
-        addDish(dataLocal, main);
+        addDish(storeg, main);
     } else {
-        addDish(dataLocal, main);
+        addDish(storeg, main);
     }
 })
