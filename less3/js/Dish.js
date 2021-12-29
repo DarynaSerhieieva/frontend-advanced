@@ -1,5 +1,5 @@
 import Storage from './Storage.js';
-
+import addToCard from './addToCard.js';
 import Modal from './Modal.js';
 
 class Dish {
@@ -24,43 +24,7 @@ class Dish {
             Modal(this.img, this.name, this.ingredients, this.price, this.like, this.add);
             myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
 
-            
-            // const priceModal = document.getElementById('priceModal');
-            // const addLikeModal = document.getElementById('addLikeModal');
-            // const counterNumer = document.getElementById('counterNumer');
-            // const addToOrder = document.getElementById('addToOrder');
-
-            // let counter = 1;
-
-            // document.getElementById('imgModal').src = `${this.img}`;
-            // document.getElementById('titelModal').innerText = `${this.name}`;
-            // document.getElementById('textModal').innerText = `${this.ingredients}`;
-            // priceModal.innerText = `${this.price}`;
-            // addLikeModal.innerText = `${this.like} користувача додали в улюблене`;
-            // counterNumer.innerText = counter;
-
             myModal.show();
-
-            // document.getElementById('counterPlus').addEventListener('click', () => {
-            //     counter++;
-            //     counterNumer.innerText = counter;
-            //     priceModal.innerText = `${this.price * counter} `;
-            // })
-            
-
-            // document.getElementById('counterMinus').addEventListener('click', () => {
-            //     if (counter > 1) {
-            //         counter--;
-            //         counterNumer.innerText = counter;
-            //         priceModal.innerText = `${this.price * counter} `;
-            //     }
-            // })
-
-            // addToOrder.addEventListener('click', (e) => {
-            //     addItemToOrder(this.name, counterNumer.innerText, this.price);
-            //     myModal.hide();
-            // })
-
         })
 
         const card = document.createElement('div');
@@ -102,6 +66,12 @@ class Dish {
         addCard.innerText = 'В корзину';
         addCard.setAttribute('href', '#');
         divPrice.appendChild(addCard);
+
+        addCard.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addToCard(this.name, 1, this.price) 
+        })
 
         const linkLike = document.createElement('a');
         linkLike.setAttribute('href', '#');

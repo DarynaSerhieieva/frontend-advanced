@@ -6,7 +6,10 @@ const addToCard = (name, counter, price, div) => {
     
     // Storage.orderList.push(new Order(name, counter, price));
     // console.log(Storage.orderList)
-    div.remove();
+    if (div) {
+       div.remove(); 
+    }
+    
     table.prepend( (new Order(name, counter, price)).render());
 
 }
