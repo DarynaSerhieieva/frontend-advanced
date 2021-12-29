@@ -1,5 +1,4 @@
-import Order from './Order.js';
-import Storage from './Storage.js';
+import addToCard from './addToCard.js';
 
 const Modal = (img, name, ingredients, price, like, add) => {
     let counter = 1;
@@ -135,22 +134,11 @@ const Modal = (img, name, ingredients, price, like, add) => {
     })
 
     addToOrder.addEventListener('click', (e) => {
-        addItemToOrder(name, counter, price, divModal);
+        addToCard(name, counter, price, divModal);
         
     })
-
-
 }
 
-const addItemToOrder = (name, counter, price, div) => {
-    const table = document.getElementById('tableOrder');
-    
-    // Storage.orderList.push(new Order(name, counter, price));
-    // console.log(Storage.orderList)
-    div.remove();
-    table.prepend( (new Order(name, counter, price)).render());
-
-}
 
 export default Modal;
 
