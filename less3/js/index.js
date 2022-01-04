@@ -1,19 +1,35 @@
 import Storage from './Storage.js';
 import addDish from './addDish.js';
 import getData from './getData.js';
+import OrderList from './OrderList.js';
 
 window.addEventListener('DOMContentLoaded', async () => {
     
     const main = document.getElementById('mainList');    
+    const table = document.getElementById('tableOrder');
 
     Storage.storeg = JSON.parse(localStorage.getItem('menu'));
 
     if (!Storage.storeg) {
         await getData('./menu.json');
         Storage.storeg = JSON.parse(localStorage.getItem('menu'));
-        
-        addDish(Storage.storeg, main);
+    }
+
+    addDish(Storage.storeg, main);
+
+    Storage.orderList = JSON.parse(localStorage.getItem('order')) || [];
+
+    if (Storage.orderList.length < 1) {
+        table.innerHTML = `
+            <tr>
+                <td colspan="3" class="border-0">На жаль кошик порожній</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="border-0">Доставка</td>
+                <td class="border-0">50 ₴ </td>
+            </tr>
+        `;
     } else {
-        addDish(Storage.storeg, main);
+        OrderList(table);
     }
 })

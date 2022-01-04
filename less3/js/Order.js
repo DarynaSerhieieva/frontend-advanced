@@ -1,6 +1,7 @@
 import Storage from './Storage.js';
 class Order {
-    constructor(name, counter, price) {
+    constructor(id, name, counter, price) {
+        this.id = id,
         this.name = name,
         this.counter = +counter,
         this.price = price

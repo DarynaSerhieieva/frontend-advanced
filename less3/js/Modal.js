@@ -1,9 +1,8 @@
 import addToCard from './addToCard.js';
 
-const Modal = (img, name, ingredients, price, like, add) => {
+const Modal = (img, name, ingredients, price, like, add, id) => {
     let counter = 1;
     const main = document.querySelector('main');
-    
     
     const divModal = document.createElement('div');
     divModal.className = 'modal fade';
@@ -58,14 +57,17 @@ const Modal = (img, name, ingredients, price, like, add) => {
 
     const span = document.createElement('span');
     span.className = 'modal-like-text d-flex py-3';
+    span.id = 'spanAdd';
     span.innerText = 'Додати в улюблене?';
     groupBtn.appendChild(span);
 
     const addLike = document.createElement('button');
     addLike.className = 'd-flex modal-btn-like';
+    addLike.id = 'addLike';
     groupBtn.appendChild(addLike);
 
     const imgBtn = document.createElement('img');
+    imgBtn.id = 'imgBtn';
     imgBtn.setAttribute('alt', 'like');
     imgBtn.setAttribute('width', '40');
     imgBtn.setAttribute('height', '34');
@@ -73,15 +75,15 @@ const Modal = (img, name, ingredients, price, like, add) => {
 
     const spanText = document.createElement('span');
     spanText.className = 'modal-like-text';
+    spanText.id ='spanText';
+    spanText.innerText =`${like} користувача додали в улюблене`;
     addLike.appendChild(spanText);
     
     if (!add) {
         imgBtn.src = './img/like.svg';
-        spanText.innerText =`${like} користувача додали в улюблене`;
         span.innerText = 'Додати в улюблене?';
     } else {
         imgBtn.src = './img/heart-add.svg';
-        spanText.innerText =`${like} користувача додали в улюблене`;
         span.innerText = 'Ви додали цю страву до улюбленого';
     } 
 
@@ -134,8 +136,8 @@ const Modal = (img, name, ingredients, price, like, add) => {
     })
 
     addToOrder.addEventListener('click', (e) => {
-        addToCard(name, counter, price, divModal);
-        
+        addToCard(name, counter, price, id);
+        divModal.remove();
     })
 }
 

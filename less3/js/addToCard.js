@@ -1,16 +1,25 @@
-import Order from './Order.js';
-import Storage from './Storage.js';
+import Order from "./Order.js";
+import OrderList from "./OrderList.js";
+import Storage from "./Storage.js";
 
-const addToCard = (name, counter, price, div) => {
-    const table = document.getElementById('tableOrder');
-    
-    // Storage.orderList.push(new Order(name, counter, price));
-    // console.log(Storage.orderList)
-    if (div) {
-       div.remove(); 
+const addToCard = (name, counter, price, id) => {
+
+    if (Storage.orderList.length < 1) {
+
+        Storage.orderList.push( new Order(id, name, counter, price));
+       
+    } else {
+        Storage.orderList.forEach(element => {
+            if (element.id == id) {
+                element.counter += counter;
+            } 
+        })
+        Storage.orderList.push( new Order(id, name, counter, price));
+        
     }
-    
-    table.prepend( (new Order(name, counter, price)).render());
+
+    localStorage.setItem('order', JSON.stringify(Storage.orderList));
+    OrderList();
 
 }
 

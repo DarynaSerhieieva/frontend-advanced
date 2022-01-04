@@ -1,6 +1,7 @@
 import Storage from './Storage.js';
-import addToCard from './addToCard.js';
+import OrderList from './OrderList.js';
 import Modal from './Modal.js';
+import changeLike from './changeLike.js';
 
 class Dish {
     constructor(name, img, price, ingredients, like, id, add) {
@@ -21,10 +22,35 @@ class Dish {
         div.className = 'col-12 col-lg-4 col-sm-6 mb-4';
 
         div.addEventListener('click', () => {
-            Modal(this.img, this.name, this.ingredients, this.price, this.like, this.add);
+            Modal(this.img, this.name, this.ingredients, this.price, this.like, this.add, this.id);
             myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-
             myModal.show();
+
+            const btn = document.getElementById('addLike');
+            const imgBtn = document.getElementById('imgBtn');
+            const like = document.getElementById('spanText');
+            const addText = document.getElementById('spanAdd');
+
+            btn.addEventListener('click', () => {
+
+                if (!this.add) {
+
+                    this.add = true;
+                    this.like ++;
+                    imgBtn.src = './img/heart-add.svg';
+                    like.innerText =`${this.like} користувача додали в улюблене`;
+                    addText.innerText = 'Ви додали цю страву до улюбленого';
+                } else {
+
+                    this.add = false;
+                    this.like --;
+                    imgBtn.src = './img/like.svg';
+                    like.innerText =`${this.like} користувача додали в улюблене`;
+                    addText.innerText = 'Додати в улюблене?';
+                }
+
+                changeLike(this.add, (this.id - 1), this.like);
+            })
         })
 
         const card = document.createElement('div');
@@ -70,7 +96,7 @@ class Dish {
         addCard.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            addToCard(this.name, 1, this.price) 
+            // addToCard(this.name, 1, this.price);
         })
 
         const linkLike = document.createElement('a');
@@ -89,6 +115,7 @@ class Dish {
         imgLike.setAttribute('alt', 'like');
         imgLike.setAttribute('width', '24');
         imgLike.setAttribute('height', '24');
+        imgLike.id = 'like';
         linkLike.appendChild(imgLike);
 
         imgLike.addEventListener('mouseover', () => {
@@ -108,19 +135,13 @@ class Dish {
             e.stopPropagation();
             if (!this.add) {
                 this.add = true;
-                imgLike.src = './img/heart-add.svg';
                 this.like ++;
-                Storage.storeg[this.id - 1].like = this.like;
-                Storage.storeg[this.id - 1].add = true;
-                localStorage['menu'] = JSON.stringify(Storage.storeg);
             } else {
                 this.add = false;
-                imgLike.src = './img/heart-border.svg';
                 this.like --;
-                Storage.storeg[this.id - 1].like = this.like;
-                Storage.storeg[this.id - 1].add = false;
-                localStorage['menu'] = JSON.stringify(Storage.storeg);
             }
+
+            changeLike(this.add, (this.id - 1), this.like);
         })
 
         return div;
