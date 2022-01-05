@@ -9,12 +9,17 @@ const addToCard = (name, counter, price, id) => {
         Storage.orderList.push( new Order(id, name, counter, price));
        
     } else {
-        Storage.orderList.forEach(element => {
+        const getElement = Storage.orderList.find(element => {
             if (element.id == id) {
-                element.counter += counter;
-            } 
+                return  element
+            }
         })
-        Storage.orderList.push( new Order(id, name, counter, price));
+
+        if (getElement) {
+            getElement.counter += counter;
+        } else {
+            Storage.orderList.push( new Order(id, name, counter, price));
+        }
         
     }
 

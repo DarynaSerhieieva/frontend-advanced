@@ -2,6 +2,8 @@ import Storage from './Storage.js';
 import OrderList from './OrderList.js';
 import Modal from './Modal.js';
 import changeLike from './changeLike.js';
+import addToCard from './addToCard.js';
+import Buy from './Buy.js';
 
 class Dish {
     constructor(name, img, price, ingredients, like, id, add) {
@@ -16,40 +18,21 @@ class Dish {
 
     render = () => {
         let myModal = '';
-        // const modal = document.getElementById('exampleModal');
-
         const div = document.createElement('div');
+
         div.className = 'col-12 col-lg-4 col-sm-6 mb-4';
 
         div.addEventListener('click', () => {
+
             Modal(this.img, this.name, this.ingredients, this.price, this.like, this.add, this.id);
-            myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
+            const modal = document.getElementById('exampleModal');
+
+            myModal = new bootstrap.Modal(modal);
             myModal.show();
 
-            const btn = document.getElementById('addLike');
-            const imgBtn = document.getElementById('imgBtn');
-            const like = document.getElementById('spanText');
-            const addText = document.getElementById('spanAdd');
-
-            btn.addEventListener('click', () => {
-
-                if (!this.add) {
-
-                    this.add = true;
-                    this.like ++;
-                    imgBtn.src = './img/heart-add.svg';
-                    like.innerText =`${this.like} користувача додали в улюблене`;
-                    addText.innerText = 'Ви додали цю страву до улюбленого';
-                } else {
-
-                    this.add = false;
-                    this.like --;
-                    imgBtn.src = './img/like.svg';
-                    like.innerText =`${this.like} користувача додали в улюблене`;
-                    addText.innerText = 'Додати в улюблене?';
-                }
-
-                changeLike(this.add, (this.id - 1), this.like);
+            modal.addEventListener('hidden.bs.modal', function (event) {
+                modal.remove();
             })
         })
 
@@ -96,7 +79,8 @@ class Dish {
         addCard.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            // addToCard(this.name, 1, this.price);
+            addToCard(this.name, 1, this.price, this.id);
+            Buy();
         })
 
         const linkLike = document.createElement('a');
@@ -136,9 +120,11 @@ class Dish {
             if (!this.add) {
                 this.add = true;
                 this.like ++;
+                imgLike.src = './img/heart-add.svg';
             } else {
                 this.add = false;
                 this.like --;
+                imgLike.src = './img/heart-border.svg';
             }
 
             changeLike(this.add, (this.id - 1), this.like);
@@ -147,14 +133,5 @@ class Dish {
         return div;
     }
 }
-
-// const addItemToOrder = (name, counter, price) => {
-//     const table = document.getElementById('tableOrder');
-    
-//     Storage.orderList.push(new Order(name, counter, price));
-//     console.log(Storage.orderList)
-//     // table.prepend( (new Order(name, counter, price)).render());
-
-// }
 
 export default Dish;

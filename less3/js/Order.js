@@ -1,4 +1,6 @@
+import Buy from './Buy.js';
 import Storage from './Storage.js';
+
 class Order {
     constructor(id, name, counter, price) {
         this.id = id,
@@ -29,6 +31,18 @@ class Order {
         buttonPlus.innerText = '+';
         tdCounter.appendChild(buttonPlus);
 
+        buttonPlus.addEventListener('click', () => {
+
+            this.counter ++;
+            spanContent.innerText = `${this.counter}`;
+            const element = Storage.orderList.find(item => item.id == this.id);
+            element.counter = this.counter;
+            tdPrice.innerText = `${this.price * this.counter} ₴`;
+            localStorage['order'] = JSON.stringify(Storage.orderList);
+
+            Buy();
+        })
+
         const spanContent = document.createElement('span');
         spanContent.className = 'px-2';
         spanContent.innerText = `${this.counter}`;
@@ -39,6 +53,26 @@ class Order {
         buttonMinus.innerText = '-';
         buttonMinus.setAttribute('type', 'button');
         tdCounter.appendChild(buttonMinus);
+
+        buttonMinus.addEventListener('click', () => {
+
+            if (this.counter > 1) {
+
+                this.counter --;
+                spanContent.innerText = `${this.counter}`;
+                const element = Storage.orderList.find(item => item.id == this.id);
+                element.counter = this.counter;
+                tdPrice.innerText = `${this.price * this.counter} ₴`;
+            } else {
+
+                tr.remove();
+                Storage.orderList = Storage.orderList.filter(item => item.id != this.id);
+            }
+            
+            localStorage['order'] = JSON.stringify(Storage.orderList);
+
+            Buy();
+        })
 
         const tdPrice = document.createElement('td');
         tdPrice.className = 'align-top text-table border-0';

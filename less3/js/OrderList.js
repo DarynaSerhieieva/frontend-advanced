@@ -14,11 +14,6 @@ const OrderList = () => {
     Storage.orderList.forEach( ({id, name, counter, price}) => {
         table.prepend((new Order(id, name, counter, price)).render())
     })
-
-    // Storage.orderList.push(new Order(name, counter, price));
-    // console.log(Storage.orderList)
-    // table.prepend( (new Order(name, counter, price)).render());
-
 }
 
 export default OrderList;

@@ -1,4 +1,8 @@
 import addToCard from './addToCard.js';
+import changeLike from './changeLike.js';
+import addDish from './addDish.js';
+import Storage from './Storage.js';
+import Buy from './Buy.js';
 
 const Modal = (img, name, ingredients, price, like, add, id) => {
     let counter = 1;
@@ -63,11 +67,9 @@ const Modal = (img, name, ingredients, price, like, add, id) => {
 
     const addLike = document.createElement('button');
     addLike.className = 'd-flex modal-btn-like';
-    addLike.id = 'addLike';
     groupBtn.appendChild(addLike);
 
     const imgBtn = document.createElement('img');
-    imgBtn.id = 'imgBtn';
     imgBtn.setAttribute('alt', 'like');
     imgBtn.setAttribute('width', '40');
     imgBtn.setAttribute('height', '34');
@@ -75,7 +77,6 @@ const Modal = (img, name, ingredients, price, like, add, id) => {
 
     const spanText = document.createElement('span');
     spanText.className = 'modal-like-text';
-    spanText.id ='spanText';
     spanText.innerText =`${like} користувача додали в улюблене`;
     addLike.appendChild(spanText);
     
@@ -137,7 +138,33 @@ const Modal = (img, name, ingredients, price, like, add, id) => {
 
     addToOrder.addEventListener('click', (e) => {
         addToCard(name, counter, price, id);
+        Buy();
         divModal.remove();
+    })
+
+    addLike.addEventListener('click', () => {
+        const main = document.getElementById('mainList');  
+        
+        if (!add) {
+
+            add = true;
+            like ++;
+            imgBtn.src = './img/heart-add.svg';
+            spanText.innerText =`${like} користувача додали в улюблене`;
+            span.innerText = 'Ви додали цю страву до улюбленого';
+        } else {
+
+            add = false;
+            like --;
+            imgBtn.src = './img/like.svg';
+            spanText.innerText =`${like} користувача додали в улюблене`;
+            span.innerText = 'Додати в улюблене?';
+        }
+
+        changeLike(add, (id - 1), like);
+        main.innerHTML = '';
+        addDish(Storage.storeg, main);
+
     })
 }
 
