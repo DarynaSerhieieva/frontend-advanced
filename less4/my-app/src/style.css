@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    color: black;
+    margin: 0;
+}

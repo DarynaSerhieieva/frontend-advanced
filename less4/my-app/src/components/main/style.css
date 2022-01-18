@@ -1,0 +1,29 @@
+.main {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main__heading {
+    color: #404149;
+    text-transform: uppercase;
+    margin: 0;
+}
+.card-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+.card-list:not(:last-child) {
+    margin-right: 30px;
+}
+.card-list__item {
+    width: 33.333%;
+}
+.card-list__img{
+    max-width: 350px;
+}
+.card-list__img{
+    width: 100%;
+}

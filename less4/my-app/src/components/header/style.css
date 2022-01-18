@@ -1,0 +1,61 @@
+.header {
+    background: url('../../../public/img/background.jpg');
+    width: 100%;
+    height: 740px;
+    position: relative;
+}
+.header__manu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+.header__heading {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    margin-top: 110px;
+    
+}
+.header__heading h2 {
+    max-width: 734px;
+    text-align: center;
+    font-size: 64px;
+    line-height: 95px;
+    margin: 0;
+}
+.header__heading p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin: 35px 0 0 0;
+}
+.header__market {
+    position: absolute;
+    background: #F7F7F7;
+    width: 1110px;
+    bottom: -18%;
+    display: flex;
+    justify-content: center;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    margin: 57px 30px;
+    width: 190px;
+    text-align: center;
+}
+.info__years {
+    font-weight: 500;
+    font-size: 72px;
+    color: #F7654A;
+    margin-bottom: 25px;
+}
+.info__market {
+    font-weight: 500;
+    font-size: 18px;
+    color: #999999;
+
+}
