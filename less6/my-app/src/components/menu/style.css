@@ -1,0 +1,19 @@
+.nav-item:not(:last-child) {
+    margin-right: 33px;
+}
+.nav-link {
+    padding: 0;
+    color: var(--grey-link);
+}
+.nav-link:hover {
+    color: var(--grey-link-active);
+}
+.nav-link.active-link {
+    background-color: var(--grey-button);
+    color: var(--grey-link-active);
+    border-radius: 10px;
+    padding: 8px 6px;
+}
+.nav-link.active-link:hover {
+    opacity: 0.75;
+}

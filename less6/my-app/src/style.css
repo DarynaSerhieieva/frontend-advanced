@@ -1,0 +1,56 @@
+:root {
+    --white: rgb(255, 255, 255);
+    --grey-background: rgb(236, 236, 236);
+    --grey-button: rgb(196, 196, 196);
+    --grey-link: rgb(123, 123, 123);
+    --grey-link-active: rgb(52, 52, 52);
+    --grey-text: rgb(161, 161, 161);
+    --grey-text-list: rgb(151, 151, 151);
+    --grey-text-modal: rgb(68, 62, 62);
+    --grey-modal-like-text: rgb(153, 153, 153);
+    --orange: rgb(255, 108, 1);
+    --orange-btn-header: rgb(239, 120, 26);
+    --green: rgb(0, 208, 8);
+    --green-heart: rgb(105, 160, 66);
+    --black: rgb(0, 0, 0);
+    --footer-background: linear-gradient(91.41deg, #323232 25.4%, #000000 75.33%);
+}
+body {
+    font-family: 'Montserrat', 'Arial', sans-serif ;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--black);
+    height:100%;
+    position:relative;
+}
+.content {
+    height: 100vh;
+    padding-bottom: 104px;
+    background: var(--grey-background);
+}
+.wrapper {
+    max-width: 1218px;
+}
+
+@media screen and (max-width: 992px) {
+    .input-header {
+        width: calc(100% - 50px);
+    }
+}
+@media screen and (max-width: 767px) {
+    .input {
+        order: 1;
+        margin-top: 20px;
+    }
+    .input-header {
+        width: 100%;
+    }
+    .footer-manu {
+        justify-content: space-around !important;
+    }
+    .order-list {
+        order: -1;
+    }
+}
