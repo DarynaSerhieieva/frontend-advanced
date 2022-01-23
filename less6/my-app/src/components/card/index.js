@@ -2,7 +2,7 @@ import React from "react";
 
 import './style.css'
 
-const Card = ({id, productName, ingredients, price, productImageUrl, like, add}) => {
+const Card = ({id, productName, ingredients, price, productImageUrl, like, add, setOrder, addLike}) => {
     
     return(
         <div className="col-12 col-lg-4 col-sm-6 mb-4">
@@ -13,18 +13,13 @@ const Card = ({id, productName, ingredients, price, productImageUrl, like, add})
                     <p className="card-text">{ingredients}</p>
                     <div className="d-flex align-items-center justify-content-between">
                         <a href="#" className="price">{price}</a>
-                        <a className="add-cart" href="#">В корзину</a>
-                        <a href="#">
-                            {
-                                add? 
-                                (
-                                    <img className="heart" src="./img/heart-add.svg" width="24" height="24" alt="heart"/>  
-                                ):
-                                (
-                                    <img className="heart" src="./img/heart-border.svg" width="24" height="24" alt="heart"/>
-                                )
-                            }
-                            
+                        <a onClick={setOrder(id, productName, price)} className="add-cart" href="#">В корзину</a>
+                        <a href="#" onClick={addLike(id, add)}>  
+                            <img 
+                                className="heart"
+                                src={ add? "./img/heart-add.svg": "./img/heart-border.svg"}
+                                width="24" height="24"alt="heart"
+                            />
                         </a>
                     </div>
                 </div>

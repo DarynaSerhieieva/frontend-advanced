@@ -1,4 +1,6 @@
 import React from "react";
+import uniqid from 'uniqid';
+
 import Item from "./item";
 
 import './style.css';
@@ -9,7 +11,7 @@ const Menu = () => {
     return(
         <ul className="col-12 nav nav-pills mt-4">
             {
-                items.map((name, index ) => <Item key={index} active={index === 0}>{name}</Item>)
+                items.map((name, index ) => <Item key={uniqid()} active={index === 0}>{name}</Item>)
             }
         </ul>
     );
