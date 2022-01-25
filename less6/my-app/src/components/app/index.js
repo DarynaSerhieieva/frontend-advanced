@@ -4,26 +4,27 @@ import uniqid from 'uniqid';
 import Body from "../body";
 import Card from "../card";
 import Menu from "../menu";
+import ModalItem from "../modal";
 import Order from "../order";
-import { setlocalStorage } from "../setlocalStorage";
+import { setlocalStorage } from "../utils";
 
 import './style.css';
 
 class App extends Component {
-
     state = {
         menu : [],
         order : [],
-        loader: false
+        loader: false,
+        modal: false,
+        modalId: '',
+        counter: 1
     }
 
     componentDidMount = () => {
-
         const storgaMenu = JSON.parse(localStorage.getItem('menu'));
         const storageOrder = JSON.parse(localStorage.getItem('order'));
 
         if (!storgaMenu || storgaMenu.length < 0) {
-
             fetch(`./menu.json`, {
                 headers : { 
                 'Content-Type': 'application/json',
@@ -33,23 +34,21 @@ class App extends Component {
             })
             .then( res => res.json() )
             .then( res => {
-                setlocalStorage('menu', res);
-
                 this.setState({
                     menu: res,
                     order: storageOrder ?? [],
                     loader: true
                 });
             });
-
-        } else {
-            this.setState({
-                menu: storgaMenu,
-                order: storageOrder ?? [],
-                loader: true
-            })
-        }
+            
+            return;
+        } 
         
+        this.setState({
+            menu: storgaMenu,
+            order: storageOrder ?? [],
+            loader: true
+        })
     }
 
     componentDidUpdate = () => {
@@ -57,9 +56,15 @@ class App extends Component {
         setlocalStorage('menu', this.state.menu);
     }
 
-    setOrder = (id, name, price, counter=1) => _ => {
+    addToCard = (id, name, price, counter=1) => e => {
+        e.stopPropagation();
+        
         const { order } = this.state;
         const o = order.find(item => item.id === id);
+
+        this.setState({
+            modal: false
+        })
 
         if (o) {
             this.setState({
@@ -85,47 +90,67 @@ class App extends Component {
                 }
             ]
         })
+
     }
     
-    addLike = (id, add) => _ => {
+    addLike = (id, add) => e => {
+        e.stopPropagation();
 
         const { menu } = this.state;
 
-        if (add) {
-            this.setState({
-                menu: menu.map(e => {
-                    if (e.id === id) {
-                        return { 
-                            ...e,
-                            like: +e.like -1,
-                            add: false
-                        }
-                    }
-                    return e;
-                })
+        this.setState({
+            menu: menu.map(e => {
+                if (e.id === id) {
+                    const like = add ? +e.like -1 : +e.like +1;
+                    return { ...e, like: like, add: !add }
+                }
+                return e;
             })
-        } else {
-            this.setState({
-                menu: menu.map(e => {
-                    if (e.id === id) {
-                        return { 
-                            ...e,
-                            like: +e.like +1,
-                            add: true
-                        }
+        });
+    }
+
+    showModal = (id) => _ => {
+        this.setState({ modal: true, modalId: id });
+    }
+
+    closeModal = () => _ => {
+        this.setState({ modal: false });
+    }
+    
+    handlerCounter = (symdol, id, counter) => _ => {
+        const { order } = this.state;
+
+        this.setState({
+            order: order.map(e => {
+                if (e.id === id ) {
+                    if (symdol === '+') {
+                        return { ...e, counter: counter + 1 }
                     }
-                    return e;
-                })
+
+                    if (counter > 1) {
+                        return { ...e, counter: counter - 1 }
+                    }
+                }
+                
+                return e;
             })
-        }
+        });
+    }
+
+    hendlerOrder = () => _ => {
+        const { order } = this.state;
+
+        console.log(order);
+
+        this.setState({ order: [] })
     }
 
     render = () => {
-
-        const { menu, order, loader } = this.state
-        const { setOrder, addLike } = this
+        const { menu, order, loader, modal, modalId } = this.state
+        const { addToCard, addLike, showModal, closeModal, handlerCounter, hendlerOrder } = this
 
         return(
+            <>
             <Body>
                 {
                     loader?
@@ -146,8 +171,9 @@ class App extends Component {
                                                     productImageUrl={productImageUrl}
                                                     like={like}
                                                     add={add}
-                                                    setOrder={setOrder}
+                                                    addToCard={addToCard}
                                                     addLike={addLike}
+                                                    showModal={showModal}
                                                 />
                                             )
                                         })
@@ -156,7 +182,7 @@ class App extends Component {
                                 </div>
                             </div>
                         <div className="col-md-4 col-12 order-list">
-                            <Order listOrder={order}/>
+                            <Order listOrder={order} handlerCounter={handlerCounter} hendlerOrder={hendlerOrder}/>
                         </div>
                     </div>
 
@@ -165,7 +191,22 @@ class App extends Component {
                         <h2>Loader..</h2>
                     )
                 }
+                
             </Body> 
+    
+            {
+                modal? 
+                <ModalItem 
+                    addLike={addLike} 
+                    addToCard={addToCard} 
+                    closeModal={closeModal} 
+                    modal={modal}
+                    menu={menu} 
+                    modalId={modalId}
+                /> : 
+                <></>
+            }
+            </>
         );
     };
 };

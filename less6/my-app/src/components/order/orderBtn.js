@@ -1,19 +1,18 @@
 import React from "react";
 
-const OrderBtn = ({list}) => {
-
+const OrderBtn = ({list, hendlerOrder}) => {
     let totalPrice = 50;
 
     const price = () => {
         list.forEach(element => {
             totalPrice += (element.price * element.counter); 
         });
+
         return(totalPrice);
     };
 
     return(
-
-        <button className="shadow-card btn__header order d-flex align-items-center justify-content-between">
+        <button onClick={hendlerOrder()} className="shadow-card btn__header order d-flex align-items-center justify-content-between">
             {
                 Array.isArray(list) && list.length > 0 ?
                 (

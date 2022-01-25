@@ -6,7 +6,7 @@ import OrderItem from "./orderItem";
 
 import './style.css';
 
-const Order = ({listOrder}) => {
+const Order = ({listOrder, handlerCounter, hendlerOrder}) => {
     
     return(
         
@@ -20,11 +20,13 @@ const Order = ({listOrder}) => {
                                 Array.isArray(listOrder) && listOrder.length > 0 ?
                                 (
                                     listOrder.map(
-                                        item => <OrderItem key={uniqid()} id={item.id} name={item.name} price={item.price} counter={item.counter}/>
+                                        item => <OrderItem handlerCounter={handlerCounter} key={uniqid()} id={item.id} name={item.name} price={item.price} counter={item.counter}/>
                                     )
                                 ) :
                                 (
-                                    <td colSpan="3" className="border-0">На жаль кошик порожній</td>
+                                    <tr>
+                                        <td colSpan="3" className="border-0">На жаль кошик порожній</td>
+                                    </tr>
                                 )
                             }
                             <tr>
@@ -34,7 +36,7 @@ const Order = ({listOrder}) => {
                         </tbody>
                     </table>
                 </div>
-                <OrderBtn list={listOrder}/>
+                <OrderBtn list={listOrder} hendlerOrder={hendlerOrder}/>
             </div>
         </div>
     );
