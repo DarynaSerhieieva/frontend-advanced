@@ -1,0 +1,29 @@
+.skills {
+    padding-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 110px;
+}
+.skills > p {
+    margin: 0;
+    padding-top: 50px;
+}
+.skills__tools{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.skills__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.skills__name {
+    font-size: 14px;
+    line-height: 17px;
+    color: #828282;
+    padding: 23px 0 40px 0;
+    margin: 0;
+}

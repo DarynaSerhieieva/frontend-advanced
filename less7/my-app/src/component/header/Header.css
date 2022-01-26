@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.header__name {
+    font-size: 47.3392px;
+    line-height: 59px;
+    max-width: 124px;
+    margin: 0;
+}
+.header__text {
+    font-size: 18px;
+    line-height: 22px;
+    max-width: 155px;
+}
+.header__lng {
+    color: #828282;
+    transform: rotate(-90deg);
+}
+.header__lng-active {
+    color: #070707;
+}
+.header__img {
+    width: 100%;
+    margin-top: 30px;
+}

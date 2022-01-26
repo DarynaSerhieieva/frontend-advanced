@@ -1,0 +1,28 @@
+.portfolio {
+    background: #F6F6F6;
+    padding: 100px 0;
+}
+.portfolio__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.portfolio__content img {
+    width: 100%;
+    margin: 40px 0;
+}
+.portfolio__content  a {
+    text-decoration:underline;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.portfolio__content > a:hover {
+    box-shadow: 0 0 10px #aaaaaa;
+}
+.portfolio__content a:hover {
+    color: #828282;
+    
+}

@@ -1,0 +1,21 @@
+.about-me {
+    background: #F6F6F6;
+    margin-top: 100px;
+    padding: 107px 0;
+}
+.about-me__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 13px;
+}
+.about-me__text {
+    max-width: 485px;
+    text-align: center;
+	font-style: normal;
+
+}
+.about-me__text p:not(:last-child) {
+    margin-bottom: 30px;
+    margin-top: 0;
+}

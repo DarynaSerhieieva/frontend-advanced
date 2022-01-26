@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'Gilroy';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../../../public/fonts/Gilroy-Bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../../public/fonts/Gilroy-Medium.woff') format('woff');
+}
+
+*{
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Gilroy', 'Tahoma', sans-serif;
+	margin: 0;
+	font-style: bold;
+	font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+}
+.wrapper {
+    max-width: 940px;
+    margin: 0 auto;
+}
+.heading {
+    font-size: 34px;
+    line-height: 42px;
+    margin: 0;
+    padding-bottom: 18px;
+}

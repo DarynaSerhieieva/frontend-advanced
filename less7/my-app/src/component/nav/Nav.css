@@ -1,0 +1,18 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #828282;
+    padding: 33px 0;
+}
+.nav__item {
+	font-style: bold;
+    color: #828282;
+    text-decoration: none;
+}
+.active {
+    color: #070707;
+}
+.nav__item:hover {
+    color: #474747;
+}
