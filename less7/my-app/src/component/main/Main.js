@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AboutMe, Contacts, Portfolio, Skills } from '../content';
+import { AboutMe, Contacts, PortfolioHome, Skills } from '../content';
 
 const Main = () => {
 
@@ -8,7 +8,7 @@ const Main = () => {
         <>
             <AboutMe/>
             <Skills/>
-            <Portfolio/>
+            <PortfolioHome/>
             <Contacts/>
         </>
     );

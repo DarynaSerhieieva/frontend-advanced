@@ -18,11 +18,10 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 10px;
+    color: #070707;
 }
-.portfolio__content > a:hover {
-    box-shadow: 0 0 10px #aaaaaa;
-}
-.portfolio__content a:hover {
+.portfolio__content span:hover {
     color: #828282;
+    
     
 }

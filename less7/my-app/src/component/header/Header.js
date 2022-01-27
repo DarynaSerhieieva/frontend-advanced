@@ -16,7 +16,7 @@ const Header = () => {
                     <span className="header__lng-active">| ENG</span>
                 </div>
             </div>
-            <img className="header__img" src="./img/denis_novik.jpg" alt="Denis Novik"/>
+            <img className="header__img" src="/img/denis_novik.jpg" alt="Denis Novik"/>
             
         </header>
     );

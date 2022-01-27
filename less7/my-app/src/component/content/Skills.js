@@ -1,4 +1,6 @@
 import React from "react";
+import uniqid from 'uniqid';
+
 import Star from "./star";
 
 import './style/Skills.css'
@@ -35,7 +37,7 @@ export const Skills = () => {
                         {
                             tools.map(e => {
                                 return(
-                                    <div className="skills__item">
+                                    <div key={uniqid()} className="skills__item">
                                         <img src={e.img} alt={e.name}/>
                                         <p className="skills__name">{e.name}</p>
                                         <Star number={e.skill}/>
