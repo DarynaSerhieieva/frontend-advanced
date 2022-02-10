@@ -23,12 +23,12 @@ const PortfolioConstruction = ({ url }) => {
                     <h2 className="heading">Portfolio</h2>
                     {
                         loader ? data.map(e => (
-                            <>
-                                <NavLink key={uniqid()} to={`/portfolio/${e.id}`}>
+                            <div key={uniqid()}>
+                                <NavLink to={`/portfolio/${e.id}`}>
                                     <img src={img[Math.floor(Math.random()* 8)]} alt="name" />
                                     <span>{e.title}</span>
                                 </NavLink>
-                            </>
+                            </div>
                         )) :<></>
                     }
                 </div>

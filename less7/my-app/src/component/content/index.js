@@ -3,4 +3,5 @@ export * from './Skills';
 export * from './Portfolio';
 export * from './Contacts';
 export * from './PortfolioHome';
+export * from './Error';
  
