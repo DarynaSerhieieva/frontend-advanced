@@ -1,32 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
+import uniqid from 'uniqid';
 
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
-const Form = () =>  {
+import { ContextInput } from "../../helpers";
+import FormItem from "./formItem/FormItem";
+
+const Form = React.memo(({handlerChange, handleSubmit}) =>  {
+
+    const {theme} = useContext(ContextInput);
+
     return(
         <>
             <Box
                 component="form"
                 sx={{
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    '& .MuiTextField-root': { m: 1, width: '100%' },
                 }}
                 noValidate
-                >
-                <div>
-                    <TextField
-                        required={false}
-                        id="outlined-required"
-                        label="Required"
-                        defaultValue="Hello World"
-                        type="password"
-                        disabled={false}
-                        helperText="Some important text"
-                    />
-                </div>
+                onSubmit={handleSubmit}
+            >
+                {
+                    theme.map(element => {
+                        return <FormItem key={uniqid()} data={element} handlerChange={handlerChange}/>
+                    })
+                }
+                <Button  color="secondary" variant="outlined" type="submit">Save</Button>
             </Box>
         </>
     );
-};
+});
 
 export default Form;

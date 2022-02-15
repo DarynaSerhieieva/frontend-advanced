@@ -1,2 +1,3 @@
 export * from './contextInput';
-export * from './theme';
+export * from './fetch';
+
