@@ -4,3 +4,5 @@ export const fetchGet = async (url) => {
     const dataJson = await data.json();
     return dataJson
 }
+
+

@@ -84,16 +84,17 @@ class App extends Component {
             .then(res => {
                 this.setState({theme: theme.map(element => {
                     if (element.id === 'country') {
-                        // let a = []
-                        // res.data.map(e => {
-                        //     return e.name
-                        // })
-
                         return { ...element, list: res.data } 
                     }
                     return element;
                 })}); 
             })
+        
+        theme.forEach(e => {
+            if (e.id === "country" && e.value.length > 2) {
+                console.log('good', e.value)
+            }
+        })
         
 
     }
@@ -102,9 +103,23 @@ class App extends Component {
         const { value } = e.target;
         const { theme } = this.state;
         
+
         this.setState({theme: theme.map(element => {
-            if (element.id === id) {
+            if (element.id === id && element.reg !== undefined ) {
                 return { ...element, value: value, error: element.reg.test(value)? false: true } 
+            }
+            if (element.id === id && element.reg === undefined ) {
+                //на данном этапе хочу  получать данные с value для Autocomplete
+                // но в компонентие FormItem, нормально не записываються данные в value
+                //  по этому сдесь код уже не работает
+                // далие я хочу написать логику, что если есть выбранная сторонна, то получить этой странны города
+                // с сервисса  https://documenter.getpostman.com/view/1134062/T1LJjU52 
+                // для себя я дальше понимаю, что писать, но не знаю как бороться с Autocomplete
+                // а так же есть проблема из-за перересовки, я ее решила навешав два обработчика на один инпут
+                // я понимаю, что это возникло из-за моей логики и общего стейта
+                // может я просто перемудрила и только усложнила код, но мне почему-то понравилась реализация через map()
+                return { ...element, value: value } 
+                // console.log('no reg')
             }
             return element;
         })});

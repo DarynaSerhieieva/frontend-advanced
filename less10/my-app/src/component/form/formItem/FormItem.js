@@ -10,6 +10,12 @@ const FormItem = ({data, handlerChange}) => {
 
     const hendlerInput = () => e => {
         setValue(e.target.value);
+        console.log(e.target.value)
+        //на компоненте Autocomplete когда печатаешь все хорошо, данные приходят.
+        // а как только выбираешь вариант кликом, меяеться value на 0 
+        // не могу понять как правильно передаь значение в value при клике, что бы получить страну
+        // для дальнейшей работы с городом использу, возможности ресурса COUNTRIES & CITIES API
+        console.log(value)
     }
 
     const countries = data?.list?.map(({ country }) => country) || [];
@@ -21,7 +27,11 @@ const FormItem = ({data, handlerChange}) => {
                 <Autocomplete
                     disablePortal
                     options={countries}
-                    renderInput={(params) => <TextField {...params} {...data}/>}
+                    onChange={hendlerInput()}
+                    onBlur={handlerChange(id)}
+                    renderInput={(params) => <TextField 
+                    
+                      value={value || data.value} {...params} {...data}/>}
                 />:
                 <TextField
                     {...data}
