@@ -32,4 +32,38 @@ const clear = () => {
     }
 }
 
-export  {operant1, operant2, sings, saveRez, clear};
+const mMinus = (value1 = '', value2 = '') => {
+    return {
+        type: "MEMORYMINUS",
+        payload: +value1 - +value2
+    }
+}
+
+const mPlus = (value1 = '', value2 = '') => {
+    return {
+        type: "MEMORYPLUS",
+        payload: +value1 + +value2
+    }
+}
+
+const mRes = (click = 1) => {
+    return {
+        type: "MEMORYRES",
+        payload: click
+    }
+}
+
+const mClear = () => {
+    return {
+        type: "MEMORYCLEAR"
+    }
+}
+
+const mNum = (click = 1) => {
+    return {
+        type: "MEMORYNUM",
+        payload: click
+    }
+}
+
+export  {operant1, operant2, sings, saveRez, clear, mMinus, mPlus, mRes, mClear, mNum};
